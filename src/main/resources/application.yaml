@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: siakad-api
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${SIAKAD_DB_USERNAME}
+    password: ${SIAKAD_DB_PASSWORD}
+    url: jdbc:postgresql://${SIAKAD_DB_HOST}:${SIAKAD_DB_PORT}/${SIAKAD_DB_NAME}
+  jpa:
+    show-sql: ${SIAKAD_SHOW_SQL}
+    hibernate:
+      ddl-auto: ${SIAKAD_DDL_AUTO}
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  task:
+    scheduling:
+      time-zone: Asia/Jakarta
+server:
+  forward-headers-strategy: framework
+  port: ${SIAKAD_PORT}
+  host: ${SIAKAD_HOST}
+app-config:
+  pathFile: ${SIAKAD_PATH_FILE}
+  jwtSecret: ${SIAKAD_JWT_SECRET}
+  jwtExpiredDuration: ${SIAKAD_JWT_EXPIRED_DURATION}
+springdoc:
+  swagger-ui:
+    doc-expansion: none
