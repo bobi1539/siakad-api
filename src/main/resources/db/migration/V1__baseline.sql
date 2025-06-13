@@ -1,0 +1,2 @@
+-- Ini adalah baseline Flyway
+-- Tidak melakukan perubahan apa pun
