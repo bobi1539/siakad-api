@@ -9,8 +9,12 @@ public final class Constant {
     }
 
     public static final String SUCCESS = "Sukses";
+    public static final String PAGE_NUMBER_NOT_VALID = "Page Number Not Valid";
     public static final String UNAUTHORIZED = "Unauthorized";
     public static final String FORBIDDEN = "Forbidden";
     public static final String CANNOT_INSTANCE_FINAL_CLASS = "Cannot Instance Final Class";
     public static final String INTERNAL_SERVER_ERROR = "Internal Server Error";
+
+    public static final String ERROR = "Error : {}";
+    public static final String ID = "id";
 }

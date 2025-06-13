@@ -6,6 +6,8 @@ public enum GlobalMessage {
 
     SUCCESS(HttpStatus.OK, Constant.SUCCESS),
 
+    PAGE_NUMBER_NOT_VALID(HttpStatus.BAD_REQUEST, Constant.PAGE_NUMBER_NOT_VALID),
+
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED, Constant.UNAUTHORIZED),
 
     FORBIDDEN(HttpStatus.FORBIDDEN, Constant.FORBIDDEN),
@@ -13,11 +15,11 @@ public enum GlobalMessage {
     CANNOT_INSTANCE_FINAL_CLASS(HttpStatus.INTERNAL_SERVER_ERROR, Constant.CANNOT_INSTANCE_FINAL_CLASS),
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, Constant.INTERNAL_SERVER_ERROR);
 
-    public final HttpStatus status;
+    public final HttpStatus httpStatus;
     public final String message;
 
-    GlobalMessage(HttpStatus status, String message) {
-        this.status = status;
+    GlobalMessage(HttpStatus httpStatus, String message) {
+        this.httpStatus = httpStatus;
         this.message = message;
     }
 }
