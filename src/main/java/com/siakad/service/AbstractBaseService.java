@@ -1,7 +1,7 @@
 package com.siakad.service;
 
 import com.siakad.constant.GlobalMessage;
-import com.siakad.entity.AbstractBaseMasterEntity;
+import com.siakad.entity.AbstractMasterEntity;
 import com.siakad.exception.BusinessException;
 import com.siakad.helper.PageHelper;
 import com.siakad.helper.StringHelper;
@@ -26,7 +26,7 @@ public abstract class AbstractBaseService {
     }
 
     protected Sort sortByIsDeletedAndIdAsc() {
-        Sort sortIsDeleted = PageHelper.sortByColumnAsc(AbstractBaseMasterEntity.FIELD_IS_DELETED);
+        Sort sortIsDeleted = PageHelper.sortByColumnAsc(AbstractMasterEntity.FIELD_IS_DELETED);
         Sort sortId = PageHelper.sortByColumnAsc(FIELD_ID);
         return sortIsDeleted.and(sortId);
     }
@@ -39,12 +39,12 @@ public abstract class AbstractBaseService {
         return PageHelper.buildPageRequest(search.getPage(), search.getSize(), sortByIsDeletedAndIdAsc());
     }
 
-    protected void setCreatedBy(AbstractBaseMasterEntity entity, Header header) {
+    protected void setCreatedBy(AbstractMasterEntity entity, Header header) {
         entity.setCreatedBy(header.getUserId());
         entity.setCreatedByName(header.getUserFullName());
     }
 
-    protected void setUpdatedBy(AbstractBaseMasterEntity baseEntity, Header header) {
+    protected void setUpdatedBy(AbstractMasterEntity baseEntity, Header header) {
         baseEntity.setUpdatedBy(header.getUserId());
         baseEntity.setUpdatedByName(header.getUserFullName());
     }

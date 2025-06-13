@@ -14,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @SuperBuilder
 @MappedSuperclass
-public abstract class AbstractBaseMasterEntity extends AbstractBaseEntity {
+public abstract class AbstractMasterEntity extends AbstractBaseEntity {
 
     @Column(name = "is_deleted")
     protected boolean isDeleted = false;

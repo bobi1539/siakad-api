@@ -21,6 +21,10 @@ public final class Constant {
     public static final String EMAIL_REQUIRED = "Email Is Required";
     public static final String PASSWORD_REQUIRED = "Password Is Required";
     public static final String REFRESH_TOKEN_REQUIRED = "Refresh Token Is Required";
+    public static final String TEACHER_NAMES_REQUIRED = "Teacher Name Is Required";
+
+    public static final String USER = "User";
+    public static final String TEACHER = "Guru";
 
     public static final String ERROR = "Error : {}";
     public static final String ID = "id";
@@ -31,5 +35,6 @@ public final class Constant {
     public static final String BEARER = "Bearer";
     public static final String APPLICATION_JSON = "application/json";
     public static final String UTF_8 = "UTF-8";
-    public static final String USER = "User";
+    public static final String DEFAULT_PAGE = "0";
+    public static final String DEFAULT_SIZE = "10";
 }

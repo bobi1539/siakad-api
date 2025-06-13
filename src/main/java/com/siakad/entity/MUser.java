@@ -19,7 +19,7 @@ import java.util.List;
 @SuperBuilder
 @Entity
 @Table(name = "m_user")
-public class MUser extends AbstractBaseMasterEntity implements UserDetails {
+public class MUser extends AbstractMasterEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
