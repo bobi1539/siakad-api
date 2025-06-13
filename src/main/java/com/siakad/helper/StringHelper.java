@@ -35,4 +35,8 @@ public final class StringHelper {
         }
         return result.toString();
     }
+
+    public static String notFoundFormat(String data) {
+        return String.format("%s Tidak Ditemukan", data);
+    }
 }
