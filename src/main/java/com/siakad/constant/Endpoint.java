@@ -12,4 +12,5 @@ public final class Endpoint {
     public static final String AUTH = BASE + "/auths";
     public static final String TEACHER = BASE + "/teachers";
     public static final String CLAZZ = BASE + "/classes";
+    public static final String STUDENT = BASE + "/students";
 }

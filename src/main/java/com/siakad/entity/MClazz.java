@@ -31,6 +31,6 @@ public class MClazz extends AbstractMasterEntity {
     @JoinColumn(name = "homeroom_teacher_id")
     private MTeacher homeroomTeacher;
 
-    public static final String FIELD_NAME = "name";
-    public static final String FIELD_GRADE_LEVEL = "gradeLevel";
+    public static final String F_NAME = "name";
+    public static final String F_GRADE_LEVEL = "gradeLevel";
 }

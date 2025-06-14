@@ -35,8 +35,8 @@ public class MUser extends AbstractMasterEntity implements UserDetails {
     @Column(name = "full_name")
     private String fullName;
 
-    public static final String FIELD_EMAIL = "email";
-    public static final String FIELD_FULL_NAME = "fullName";
+    public static final String F_EMAIL = "email";
+    public static final String F_FULL_NAME = "fullName";
 
     @Override
     public String getUsername() {

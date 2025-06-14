@@ -78,9 +78,8 @@ public class TeacherServiceImpl extends AbstractMasterService implements Teacher
     @Override
     public TeacherResponse restore(Long id, Header header) {
         MTeacher teacher = findByIdEntity(id, header);
-        teacher.setDeleted(false);
-        setUpdatedBy(teacher, header);
-        return toResponse(save(teacher));
+        restoreData(teacherRepository, teacher, header);
+        return toResponse(teacher);
     }
 
     @Override
@@ -93,7 +92,7 @@ public class TeacherServiceImpl extends AbstractMasterService implements Teacher
     }
 
     private Specification<MTeacher> getSpecification(Search search) {
-        Specification<MTeacher> spec = SpecificationHelper.stringLike(MTeacher.FIELD_NAME, search.getValue());
+        Specification<MTeacher> spec = SpecificationHelper.stringLike(MTeacher.F_NAME, search.getValue());
         return spec.and(getSpecificationIsDeleted(search.getIsDeleted()));
     }
 

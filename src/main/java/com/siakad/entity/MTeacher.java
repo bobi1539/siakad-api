@@ -24,5 +24,5 @@ public class MTeacher extends AbstractMasterEntity {
     @Column(name = "name")
     private String name;
 
-    public static final String FIELD_NAME = "name";
+    public static final String F_NAME = "name";
 }

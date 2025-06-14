@@ -81,9 +81,8 @@ public class ClazzServiceImpl extends AbstractMasterService implements ClazzServ
     @Override
     public ClazzResponse restore(Long id, Header header) {
         MClazz clazz = findByIdEntity(id, header);
-        clazz.setDeleted(false);
-        setUpdatedBy(clazz, header);
-        return toResponse(save(clazz));
+        restoreData(clazzRepository, clazz, header);
+        return toResponse(clazz);
     }
 
     @Override
@@ -96,9 +95,9 @@ public class ClazzServiceImpl extends AbstractMasterService implements ClazzServ
     }
 
     private Specification<MClazz> getSpecification(ClazzSearch search) {
-        Specification<MClazz> spec = SpecificationHelper.stringLike(MClazz.FIELD_NAME, search.getValue());
+        Specification<MClazz> spec = SpecificationHelper.stringLike(MClazz.F_NAME, search.getValue());
         return spec
-                .and(SpecificationHelper.objectEquals(MClazz.FIELD_GRADE_LEVEL, search.getGradeLevel()))
+                .and(SpecificationHelper.objectEquals(MClazz.F_GRADE_LEVEL, search.getGradeLevel()))
                 .and(getSpecificationIsDeleted(search.getIsDeleted()));
     }
 

@@ -1,7 +1,7 @@
 package com.siakad.model.request;
 
 import com.siakad.constant.Constant;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
@@ -13,7 +13,7 @@ import lombok.*;
 public class ClazzRequest {
 
     @NotNull(message = Constant.CLAZZ_NAME_REQUIRED)
-    @NotEmpty(message = Constant.CLAZZ_NAME_REQUIRED)
+    @NotBlank(message = Constant.CLAZZ_NAME_REQUIRED)
     private String name;
 
     @NotNull(message = Constant.GRADE_LEVEL_REQUIRED)

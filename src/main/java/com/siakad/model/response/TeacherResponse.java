@@ -18,6 +18,7 @@ public class TeacherResponse extends AbstractMasterEntityResponse {
 
     public static TeacherResponse build(MTeacher teacher) {
         if (teacher == null) return null;
+
         TeacherResponse response = TeacherResponse.builder()
                 .id(teacher.getId())
                 .name(teacher.getName())

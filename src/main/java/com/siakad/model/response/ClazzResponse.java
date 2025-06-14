@@ -20,6 +20,7 @@ public class ClazzResponse extends AbstractMasterEntityResponse {
 
     public static ClazzResponse build(MClazz clazz) {
         if (clazz == null) return null;
+
         ClazzResponse response = ClazzResponse.builder()
                 .id(clazz.getId())
                 .name(clazz.getName())

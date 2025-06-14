@@ -18,6 +18,16 @@ public abstract class AbstractMasterService extends AbstractBaseService {
         repository.save(entity);
     }
 
+    protected <T extends AbstractMasterEntity, ID> void restoreData(
+            MasterRepository<T, ID> repository,
+            T entity,
+            Header header
+    ) {
+        entity.setDeleted(false);
+        setUpdatedBy(entity, header);
+        repository.save(entity);
+    }
+
     protected void setDeleted(AbstractMasterEntity entity, Header header) {
         setCreatedBy(entity, header);
         setUpdatedBy(entity, header);
