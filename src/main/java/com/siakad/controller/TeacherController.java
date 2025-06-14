@@ -3,6 +3,7 @@ package com.siakad.controller;
 import com.siakad.constant.Constant;
 import com.siakad.constant.Endpoint;
 import com.siakad.model.dto.Header;
+import com.siakad.model.dto.Search;
 import com.siakad.model.request.TeacherRequest;
 import com.siakad.model.response.TeacherResponse;
 import com.siakad.service.TeacherService;
@@ -10,6 +11,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,28 +21,24 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping(Endpoint.TEACHER)
 @SecurityRequirement(name = Constant.AUTHORIZATION)
-public class TeacherController extends AbstractBaseController {
+public class TeacherController {
 
     private final TeacherService teacherService;
 
     @GetMapping("/all")
     public List<TeacherResponse> findAll(
-            @RequestParam(required = false) String search,
-            @RequestParam(required = false) Boolean isDeleted,
+            @ParameterObject @ModelAttribute Search search,
             @Parameter(hidden = true) @ModelAttribute Header header
     ) {
-        return teacherService.findAll(buildSearch(search, isDeleted, 0, 0), header);
+        return teacherService.findAll(search, header);
     }
 
     @GetMapping
     public Page<TeacherResponse> findAllPagination(
-            @RequestParam(required = false) String search,
-            @RequestParam(required = false) Boolean isDeleted,
-            @RequestParam(required = false, defaultValue = Constant.DEFAULT_PAGE) int page,
-            @RequestParam(required = false, defaultValue = Constant.DEFAULT_SIZE) int size,
+            @ParameterObject @ModelAttribute Search search,
             @Parameter(hidden = true) @ModelAttribute Header header
     ) {
-        return teacherService.findAllPagination(buildSearch(search, isDeleted, page, size), header);
+        return teacherService.findAllPagination(search, header);
     }
 
     @GetMapping("/{id}")

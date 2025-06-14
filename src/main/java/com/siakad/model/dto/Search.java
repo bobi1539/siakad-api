@@ -1,5 +1,6 @@
 package com.siakad.model.dto;
 
+import com.siakad.constant.Constant;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,6 @@ import lombok.experimental.SuperBuilder;
 public class Search {
     private String value;
     private Boolean isDeleted;
-    private int page;
-    private int size;
+    private int page = Constant.DEFAULT_PAGE;
+    private int size = Constant.DEFAULT_SIZE;
 }

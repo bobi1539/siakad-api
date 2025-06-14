@@ -3,7 +3,6 @@ package com.siakad.controller;
 import com.siakad.constant.Constant;
 import com.siakad.constant.GlobalMessage;
 import com.siakad.model.dto.Header;
-import com.siakad.model.dto.Search;
 import com.siakad.model.response.BaseResponse;
 import com.siakad.model.response.FileResponse;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,15 +31,6 @@ public abstract class AbstractBaseController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, contentDispositionValue)
                 .contentType(response.getMediaType())
                 .body(response.getResource());
-    }
-
-    protected Search buildSearch(String value, Boolean isDeleted, int page, int size) {
-        return Search.builder()
-                .value(value)
-                .isDeleted(isDeleted)
-                .page(page)
-                .size(size)
-                .build();
     }
 
     @ModelAttribute(name = Constant.HEADER)

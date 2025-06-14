@@ -31,6 +31,7 @@ public final class Constant {
     public static final String NIS_REQUIRED = "NIS Tidak Boleh Kosong";
     public static final String BIRTH_DATE_REQUIRED = "Tanggal Lahir Tidak Boleh Kosong";
     public static final String PHONE_NUMBER_REQUIRED = "No Handphone Tidak Boleh Kosong";
+    public static final String PHONE_NUMBER_NOT_VALID = "No Handphone Tidak Valid";
     public static final String ADDRESS_REQUIRED = "Alamat Tidak Boleh Kosong";
     public static final String GENDER_REQUIRED = "Jenis Kelamin Tidak Boleh Kosong";
     public static final String STUDENT_STATUS_REQUIRED = "Status Siswa Tidak Boleh Kosong";
@@ -50,6 +51,6 @@ public final class Constant {
     public static final String BEARER = "Bearer";
     public static final String APPLICATION_JSON = "application/json";
     public static final String UTF_8 = "UTF-8";
-    public static final String DEFAULT_PAGE = "0";
-    public static final String DEFAULT_SIZE = "10";
+    public static final int DEFAULT_PAGE = 0;
+    public static final int DEFAULT_SIZE = 10;
 }

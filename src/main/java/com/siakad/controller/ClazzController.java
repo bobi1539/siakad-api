@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,44 +21,24 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping(Endpoint.CLAZZ)
 @SecurityRequirement(name = Constant.AUTHORIZATION)
-public class ClazzController extends AbstractBaseController {
+public class ClazzController {
 
     private final ClazzService clazzService;
 
     @GetMapping("/all")
     public List<ClazzResponse> findAll(
-            @RequestParam(required = false) String search,
-            @RequestParam(required = false) Boolean isDeleted,
-            @RequestParam(required = false) Integer gradeLevel,
+            @ParameterObject @ModelAttribute ClazzSearch search,
             @Parameter(hidden = true) @ModelAttribute Header header
     ) {
-        ClazzSearch clazzSearch = ClazzSearch.builder()
-                .value(search)
-                .isDeleted(isDeleted)
-                .gradeLevel(gradeLevel)
-                .page(0)
-                .size(0)
-                .build();
-        return clazzService.findAll(clazzSearch, header);
+        return clazzService.findAll(search, header);
     }
 
     @GetMapping
     public Page<ClazzResponse> findAllPagination(
-            @RequestParam(required = false) String search,
-            @RequestParam(required = false) Boolean isDeleted,
-            @RequestParam(required = false) Integer gradeLevel,
-            @RequestParam(required = false, defaultValue = Constant.DEFAULT_PAGE) int page,
-            @RequestParam(required = false, defaultValue = Constant.DEFAULT_SIZE) int size,
+            @ParameterObject @ModelAttribute ClazzSearch search,
             @Parameter(hidden = true) @ModelAttribute Header header
     ) {
-        ClazzSearch clazzSearch = ClazzSearch.builder()
-                .value(search)
-                .isDeleted(isDeleted)
-                .gradeLevel(gradeLevel)
-                .page(page)
-                .size(size)
-                .build();
-        return clazzService.findAllPagination(clazzSearch, header);
+        return clazzService.findAllPagination(search, header);
     }
 
     @GetMapping("/{id}")

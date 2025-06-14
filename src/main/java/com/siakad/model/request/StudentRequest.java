@@ -3,8 +3,10 @@ package com.siakad.model.request;
 import com.siakad.constant.Constant;
 import com.siakad.constant.Gender;
 import com.siakad.constant.StudentStatus;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -31,10 +33,12 @@ public class StudentRequest {
     @NotNull(message = Constant.BIRTH_DATE_REQUIRED)
     private LocalDate birthDate;
 
+    @Email(message = Constant.EMAIL_NOT_VALID)
     @NotNull(message = Constant.EMAIL_REQUIRED)
     @NotBlank(message = Constant.EMAIL_REQUIRED)
     private String email;
 
+    @Pattern(message = Constant.PHONE_NUMBER_NOT_VALID, regexp = "^\\+?\\d{9,15}$")
     @NotNull(message = Constant.PHONE_NUMBER_REQUIRED)
     @NotBlank(message = Constant.PHONE_NUMBER_REQUIRED)
     private String phoneNumber;
