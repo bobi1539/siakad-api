@@ -12,7 +12,7 @@ import lombok.*;
 @Builder
 public class TeacherRequest {
 
-    @NotNull(message = Constant.TEACHER_NAMES_REQUIRED)
-    @NotEmpty(message = Constant.TEACHER_NAMES_REQUIRED)
+    @NotNull(message = Constant.TEACHER_NAME_REQUIRED)
+    @NotEmpty(message = Constant.TEACHER_NAME_REQUIRED)
     private String name;
 }

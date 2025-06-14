@@ -18,13 +18,17 @@ public final class Constant {
     public static final String CANNOT_INSTANCE_FINAL_CLASS = "Cannot Instance Final Class";
     public static final String INTERNAL_SERVER_ERROR = "Internal Server Error";
 
-    public static final String EMAIL_REQUIRED = "Email Is Required";
-    public static final String PASSWORD_REQUIRED = "Password Is Required";
-    public static final String REFRESH_TOKEN_REQUIRED = "Refresh Token Is Required";
-    public static final String TEACHER_NAMES_REQUIRED = "Teacher Name Is Required";
+    public static final String EMAIL_REQUIRED = "Email Tidak Boleh Kosong";
+    public static final String PASSWORD_REQUIRED = "Password Tidak Boleh Kosong";
+    public static final String REFRESH_TOKEN_REQUIRED = "Refresh Token Tidak Boleh Kosong";
+    public static final String TEACHER_NAME_REQUIRED = "Nama Guru Tidak Boleh Kosong";
+    public static final String CLAZZ_NAME_REQUIRED = "Nama Kelas Tidak Boleh Kosong";
+    public static final String GRADE_LEVEL_REQUIRED = "Tingkat Kelas Tidak Boleh Kosong";
+    public static final String TEACHER_ID_REQUIRED = "Id Guru Tidak Boleh Kosong";
 
     public static final String USER = "User";
     public static final String TEACHER = "Guru";
+    public static final String CLAZZ = "Kelas";
 
     public static final String ERROR = "Error : {}";
     public static final String ID = "id";

@@ -13,8 +13,8 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @SuperBuilder
 @Entity
-@Table(name = "m_teacher")
-public class MTeacher extends AbstractMasterEntity {
+@Table(name = "m_clazz")
+public class MClazz extends AbstractMasterEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,5 +24,13 @@ public class MTeacher extends AbstractMasterEntity {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "grade_level")
+    private Integer gradeLevel;
+
+    @ManyToOne
+    @JoinColumn(name = "homeroom_teacher_id")
+    private MTeacher homeroomTeacher;
+
     public static final String FIELD_NAME = "name";
+    public static final String FIELD_GRADE_LEVEL = "gradeLevel";
 }
