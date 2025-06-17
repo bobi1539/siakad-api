@@ -13,6 +13,8 @@ public final class Constant {
     public static final String CANNOT_DELETE_THIS_DATA = "Tidak Bisa Menghapus Data Ini Karena Sudah Digunakan Oleh Entitas Lain";
     public static final String WRONG_EMAIL_OR_PASSWORD = "Email Atau Password Salah";
     public static final String REFRESH_TOKEN_NOT_VALID = "Refresh Token Tidak Valid";
+    public static final String FILE_NOT_VALID = "File Tidak Valid";
+    public static final String FILE_NOT_ALLOWED = "File Tidak Diizinkan";
     public static final String UNAUTHORIZED = "Unauthorized";
     public static final String FORBIDDEN = "Forbidden";
     public static final String CANNOT_INSTANCE_FINAL_CLASS = "Cannot Instance Final Class";
@@ -26,6 +28,8 @@ public final class Constant {
     public static final String CLAZZ_NAME_REQUIRED = "Nama Kelas Tidak Boleh Kosong";
     public static final String GRADE_LEVEL_REQUIRED = "Tingkat Kelas Tidak Boleh Kosong";
     public static final String TEACHER_ID_REQUIRED = "ID Guru Tidak Boleh Kosong";
+    public static final String TEACHER_STATUS_REQUIRED = "Status Guru Tidak Boleh Kosong";
+    public static final String TEACHER_PHOTO_REQUIRED = "Foto Guru Tidak Boleh Kosong";
     public static final String STUDENT_NAME_REQUIRED = "Nama Siswa Tidak Boleh Kosong";
     public static final String NISN_REQUIRED = "NISN Tidak Boleh Kosong";
     public static final String NIS_REQUIRED = "NIS Tidak Boleh Kosong";
@@ -53,4 +57,5 @@ public final class Constant {
     public static final String UTF_8 = "UTF-8";
     public static final int DEFAULT_PAGE = 0;
     public static final int DEFAULT_SIZE = 10;
+    public static final String DOT = ".";
 }

@@ -1,5 +1,6 @@
 package com.siakad.entity;
 
+import com.siakad.constant.TeacherStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,13 @@ public class MTeacher extends AbstractMasterEntity {
 
     @Column(name = "name")
     private String name;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private TeacherStatus status;
+
+    @Column(name = "photo")
+    private String photo;
 
     public static final String F_NAME = "name";
 }

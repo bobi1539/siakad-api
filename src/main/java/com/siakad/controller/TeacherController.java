@@ -13,6 +13,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -49,18 +50,18 @@ public class TeacherController {
         return teacherService.findById(id, header);
     }
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public TeacherResponse create(
-            @RequestBody @Valid TeacherRequest request,
+            @ModelAttribute @Valid TeacherRequest request,
             @Parameter(hidden = true) @ModelAttribute Header header
     ) {
         return teacherService.create(request, header);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public TeacherResponse update(
             @PathVariable Long id,
-            @RequestBody @Valid TeacherRequest request,
+            @ModelAttribute @Valid TeacherRequest request,
             @Parameter(hidden = true) @ModelAttribute Header header
     ) {
         return teacherService.update(id, request, header);
