@@ -1,7 +1,5 @@
 package com.siakad.model.response;
 
-import com.siakad.constant.Gender;
-import com.siakad.constant.StudentStatus;
 import com.siakad.entity.MStudent;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,8 +23,8 @@ public class StudentResponse extends AbstractMasterEntityResponse {
     private String email;
     private String phoneNumber;
     private String address;
-    private Gender gender;
-    private StudentStatus status;
+    private String gender;
+    private String status;
     private ClazzResponse currentClazz;
 
     public static StudentResponse build(MStudent student) {
@@ -41,8 +39,8 @@ public class StudentResponse extends AbstractMasterEntityResponse {
                 .email(student.getEmail())
                 .phoneNumber(student.getPhoneNumber())
                 .address(student.getAddress())
-                .gender(student.getGender())
-                .status(student.getStatus())
+                .gender(student.getGender().label)
+                .status(student.getStatus().label)
                 .currentClazz(ClazzResponse.build(student.getCurrentClazz()))
                 .build();
         setMasterEntity(response, student);

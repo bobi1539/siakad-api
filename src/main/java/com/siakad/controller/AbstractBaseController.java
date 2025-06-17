@@ -4,12 +4,8 @@ import com.siakad.constant.Constant;
 import com.siakad.constant.GlobalMessage;
 import com.siakad.model.dto.Header;
 import com.siakad.model.response.BaseResponse;
-import com.siakad.model.response.FileResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -23,14 +19,6 @@ public abstract class AbstractBaseController {
                 .message(GlobalMessage.SUCCESS.message)
                 .data(data)
                 .build();
-    }
-
-    protected ResponseEntity<InputStreamResource> buildResourceResponse(FileResponse response) {
-        String contentDispositionValue = Constant.HEADER_INPUT_STREAM + response.getFileName();
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, contentDispositionValue)
-                .contentType(response.getMediaType())
-                .body(response.getResource());
     }
 
     @ModelAttribute(name = Constant.HEADER)

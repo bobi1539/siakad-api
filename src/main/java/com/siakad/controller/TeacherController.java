@@ -5,6 +5,7 @@ import com.siakad.constant.Endpoint;
 import com.siakad.model.dto.Header;
 import com.siakad.model.dto.Search;
 import com.siakad.model.request.TeacherRequest;
+import com.siakad.model.response.GetDirectoryResponse;
 import com.siakad.model.response.TeacherResponse;
 import com.siakad.service.TeacherService;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -81,5 +82,10 @@ public class TeacherController {
             @Parameter(hidden = true) @ModelAttribute Header header
     ) {
         return teacherService.restore(id, header);
+    }
+
+    @GetMapping("/directory")
+    public GetDirectoryResponse getDirectory() {
+        return teacherService.getDirectory();
     }
 }

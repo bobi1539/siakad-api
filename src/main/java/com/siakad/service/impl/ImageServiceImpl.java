@@ -30,12 +30,11 @@ public class ImageServiceImpl extends AbstractFileService implements ImageServic
 
     @Override
     protected long initMaxFileSize() {
-        return 10L * 1_024L * 1_024L;
+        return 1_024L * 1_024L;
     }
 
     @Override
     public String save(MultipartFile file, String directory) {
-        validateFile(file);
         return saveFile(file, directory);
     }
 

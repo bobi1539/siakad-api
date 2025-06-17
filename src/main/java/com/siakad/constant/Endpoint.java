@@ -13,4 +13,5 @@ public final class Endpoint {
     public static final String TEACHER = BASE + "/teachers";
     public static final String CLAZZ = BASE + "/classes";
     public static final String STUDENT = BASE + "/students";
+    public static final String FILE = BASE + "/files";
 }

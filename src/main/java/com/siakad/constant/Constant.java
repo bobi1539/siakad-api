@@ -15,6 +15,7 @@ public final class Constant {
     public static final String REFRESH_TOKEN_NOT_VALID = "Refresh Token Tidak Valid";
     public static final String FILE_NOT_VALID = "File Tidak Valid";
     public static final String FILE_NOT_ALLOWED = "File Tidak Diizinkan";
+    public static final String FILE_DOESNT_EXIST = "File Tidak Tersedia";
     public static final String UNAUTHORIZED = "Unauthorized";
     public static final String FORBIDDEN = "Forbidden";
     public static final String CANNOT_INSTANCE_FINAL_CLASS = "Cannot Instance Final Class";
@@ -49,7 +50,7 @@ public final class Constant {
     public static final String ERROR = "Error : {}";
     public static final String ID = "id";
     public static final String HEADER = "header";
-    public static final String HEADER_INPUT_STREAM = "attachment; filename=";
+    public static final String CONTENT_DISPOSITION = "inline; filename=";
     public static final String AUTHORIZATION = "Authorization";
     public static final String JWT = "JWT";
     public static final String BEARER = "Bearer";

@@ -1,7 +1,7 @@
 package com.siakad.model.response;
 
 import lombok.*;
-import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 
 @AllArgsConstructor
@@ -10,7 +10,6 @@ import org.springframework.http.MediaType;
 @Setter
 @Builder
 public class FileResponse {
-    private String fileName;
-    private InputStreamResource resource;
+    private Resource resource;
     private MediaType mediaType;
 }

@@ -1,6 +1,5 @@
 package com.siakad.model.response;
 
-import com.siakad.constant.TeacherStatus;
 import com.siakad.entity.MTeacher;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 public class TeacherResponse extends AbstractMasterEntityResponse {
     private Long id;
     private String name;
-    private TeacherStatus status;
+    private String status;
     private String photo;
 
     public static TeacherResponse build(MTeacher teacher) {
@@ -25,7 +24,7 @@ public class TeacherResponse extends AbstractMasterEntityResponse {
         TeacherResponse response = TeacherResponse.builder()
                 .id(teacher.getId())
                 .name(teacher.getName())
-                .status(teacher.getStatus())
+                .status(teacher.getStatus().label)
                 .photo(teacher.getPhoto())
                 .build();
         setMasterEntity(response, teacher);

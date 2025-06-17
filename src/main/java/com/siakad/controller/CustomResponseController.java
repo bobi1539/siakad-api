@@ -1,7 +1,7 @@
 package com.siakad.controller;
 
-import com.siakad.model.response.FileResponse;
 import org.springframework.core.MethodParameter;
+import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
@@ -31,12 +31,16 @@ public class CustomResponseController extends AbstractBaseController implements 
             @NonNull ServerHttpRequest request,
             @NonNull ServerHttpResponse response
     ) {
+
         if (returnType.getContainingClass().isAnnotationPresent(RestController.class)) {
-            if (body instanceof FileResponse) {
-                return buildResourceResponse((FileResponse) body);
+
+            if (body instanceof Resource) {
+                return body;
             }
+
             return buildSuccessResponse(body);
         }
+
         return body;
     }
 }

@@ -9,6 +9,7 @@ import com.siakad.helper.StringHelper;
 import com.siakad.model.dto.Header;
 import com.siakad.model.dto.Search;
 import com.siakad.model.request.TeacherRequest;
+import com.siakad.model.response.GetDirectoryResponse;
 import com.siakad.model.response.TeacherResponse;
 import com.siakad.repository.TeacherRepository;
 import com.siakad.service.AbstractMasterService;
@@ -31,7 +32,7 @@ public class TeacherServiceImpl extends AbstractMasterService implements Teacher
 
     private final TeacherRepository teacherRepository;
     private final ImageService imageService;
-    private static final String DIRECTORY = "/teacher";
+    private static final String DIRECTORY = "teacher";
 
     @Override
     public List<TeacherResponse> findAll(Search search, Header header) {
@@ -94,6 +95,11 @@ public class TeacherServiceImpl extends AbstractMasterService implements Teacher
     @Override
     public MTeacher findByIdEntity(Long id, Header header) {
         return teacherRepository.findById(id).orElseThrow(notFoundException(Constant.TEACHER));
+    }
+
+    @Override
+    public GetDirectoryResponse getDirectory() {
+        return GetDirectoryResponse.builder().directoryName(DIRECTORY).build();
     }
 
     private TeacherResponse toResponse(MTeacher teacher) {

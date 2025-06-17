@@ -68,12 +68,14 @@ public abstract class AbstractFileService {
     }
 
     protected String saveFile(MultipartFile file, String directory) {
+        validateFile(file);
+
         String contentType = file.getContentType();
         String extension = supportedFormat.get(contentType);
         String fileName = generateFileName(extension);
 
-        Path storagePath = Paths.get(appConfig.getPathFile() + directory);
-        Path filePath = storagePath.resolve(fileName);
+        Path storagePath = Paths.get(appConfig.getPathFile() + directory).normalize();
+        Path filePath = storagePath.resolve(fileName).normalize();
 
         try {
             Files.createDirectories(storagePath);
