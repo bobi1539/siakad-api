@@ -78,6 +78,7 @@ public class TeacherServiceImpl extends AbstractMasterService implements Teacher
 
         if (teacher.isDeleted()) {
             hardDelete(teacherRepository, teacher);
+            deletePhoto(teacher.getPhoto());
             return toResponse(teacher);
         }
 
@@ -128,12 +129,16 @@ public class TeacherServiceImpl extends AbstractMasterService implements Teacher
 
         if (FileHelper.isPresent(newPhoto)) {
             if (StringHelper.isPresent(oldPhoto)) {
-                imageService.delete(oldPhoto, DIRECTORY);
+                deletePhoto(oldPhoto);
             }
 
             String newPhotoFileName = imageService.save(newPhoto, DIRECTORY);
             teacher.setPhoto(newPhotoFileName);
         }
+    }
+
+    private void deletePhoto(String photo) {
+        imageService.delete(photo, DIRECTORY);
     }
 
     private MTeacher save(MTeacher teacher) {
